@@ -3,18 +3,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 const WrapperStyle = styled.div`
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     .author{
         margin-right: 7px;
         font-weight: bold;
     }
     .date{
-        margin-right: 10px;
+        margin-right: 52px;
         font-size: 12px;
         color: #5e5757;
+        float: right;
     }
     .content{
-        margin-right: 52px;
+        margin-left: 38px;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 1px 10px;
     }
     .image{
         margin-right: 12px;
@@ -22,22 +26,16 @@ const WrapperStyle = styled.div`
     .my-chat span{
         float: right;
     }
-    .date-author{
-       padding-top: 4px;
-    }
+ 
 `;
-export default function MessageRight({text, displayName, createdAt, photoURL }) {
+export default function MessageRight({text, createdAt}) {
   return (
     <WrapperStyle>
         <div>
             <Typography.Text className='content'>{text}</Typography.Text>
         </div>
-        <div className='my-chat'>
-            <Avatar src={photoURL} className="image">A</Avatar>
-            <div className='date-author'>
-                <Typography.Text className='author'>{displayName}</Typography.Text>
-                <Typography.Text className='date'>{createdAt}</Typography.Text>
-            </div>           
+        <div className='my-chat'>  
+            <Typography.Text className='date'>{createdAt}</Typography.Text>                   
         </div>
     </WrapperStyle>
   )

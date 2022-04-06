@@ -30,6 +30,7 @@ export default function AuthProvider({ chidren }) {
                 navigate('/');
                 return;
             }
+            setIsloading(false);
             navigate('/'); 
         });
         // clean function

@@ -6,8 +6,9 @@ const {Title} = Typography;
 const fbProvider = new firebase.auth.FacebookAuthProvider();
 
 export default function Login() {
-    const handleLoginFB = () =>{
-        auth.signInWithPopup(fbProvider);
+    const handleLoginFB = async () =>{
+        const data = await auth.signInWithPopup(fbProvider);
+        console.log({data})
     }
    
   return (

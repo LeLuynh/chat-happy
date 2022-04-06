@@ -44,7 +44,8 @@ const ContentStyle = styled.div`
 
 `;
 const MessageListLeftStyle = styled.div`
-   
+   max-height: 100%;
+   over-flow-y: auto;
 `;
 const MessageListRightStyle = styled.div`
    display: flex;
@@ -59,6 +60,14 @@ const FormStyle = styled(Form)`
   display:flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2px 2px 2px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  .ant-form-item{
+    flex: 1;
+    margin-bottom: 0px;
+  }
   span div span span{
     font-size: 30px;
     color: #f99707;
@@ -80,7 +89,21 @@ const ButtonStyle = styled(Button)`
      font-size: 20px;
      color: #f99707;
   }
-
+`;
+const UploadStyle = styled(Upload)`
+  .ant-upload-list-item-name{
+    display: none;
+  }
+  .ant-upload-list-picture{
+    display: flex;
+  }
+  .ant-upload-list-picture .ant-upload-list-item{
+    border-radius: 15px;
+}
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  
 `;
 export default function ChatWindown() {
   return (
@@ -114,22 +137,41 @@ export default function ChatWindown() {
       <ContentStyle>
         <MessageListStyle>
           <MessageListLeftStyle>
-            <MessageLeft text="Hello" displayName="Luynh" photoUrl={null} createdAt={12/21/12}/>
-            <MessageLeft text="How are you" displayName="Luynh" photoUrl={null} createdAt={12/21/12}/>
-            <MessageLeft text="I'm fine, thank you. And you." displayName="Luynh" photoUrl={null} createdAt={12/21/12}/>
-            <MessageLeft text="I'm fine" displayName="Luynh" photoUrl={null} createdAt={12/21/12}/>
+            <MessageLeft 
+                      text="Hello"
+                      displayName="Luynh"
+                      photoUrl={null}
+                      createdAt={12/21/12}/>
+            <MessageLeft 
+                      text="How are you" 
+                      displayName="Luynh" 
+                      photoUrl={null} 
+                      createdAt={12/21/12}/>
+            <MessageLeft 
+                      text="I'm fine, thank you. And you." 
+                      displayName="Luynh" 
+                      photoUrl={null} 
+                      createdAt={12/21/12}/>
+            <MessageLeft 
+                      text="I'm fine" 
+                      displayName="Luynh" 
+                      photoUrl={null} 
+                      createdAt={12/21/12}/>
           </MessageListLeftStyle>
           <MessageListRightStyle>
-            <MessageRight text="I'm Good, what are you doing?" displayName="Luynh" photoUrl={null} createdAt={11}/>
+            <MessageRight 
+                      text="I'm Good, what are you doing?" 
+                      createdAt={12/21/12}/>
           </MessageListRightStyle>
         </MessageListStyle>
         <FormStyle>
-          <Upload listType="picture" className="upload-list-inline"><FileImageOutlined /></Upload>
-          <Button type='text'><SmileOutlined /></Button>
-          <Input.Group compact>
-            <Input style={{ width: 'calc(100% - 90px)', padding: '7px 10px', borderRadius: '20px'}} defaultValue="https://ant.design" />
-            <ButtonStyle type="text">{<SendOutlined />}</ButtonStyle>
-          </Input.Group>
+          <UploadStyle listType="picture" className="UploadStyle-list-inline"><FileImageOutlined /></UploadStyle>
+          <Form.Item> 
+            <Input.Group compact>
+              <Input bordered={false} autoComplete="off" placeholder='nhan tin...'/> 
+            </Input.Group>
+          </Form.Item>
+          <Button type="text">{<SendOutlined />}</Button>
         </FormStyle>
       </ContentStyle>
     </WrapperStyled>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button, Avatar, Typography} from 'antd';
 import styled from 'styled-components';
+import { auth } from '../../FireBase/config';
 
 const WrapStyle = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export default function UserInfo() {
             <Avatar>s</Avatar>
             <Typography.Text className='username'>Luynh</Typography.Text>
         </div>
-        <Button ghost>Log out</Button>
+        <Button ghost onClick={() => auth.signOut()}>Log out</Button>
     </WrapStyle>
   )
 }
